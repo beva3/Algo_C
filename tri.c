@@ -22,7 +22,16 @@ V_p min_of_tab(int *t, int size)
 
     return min;
 }
-
+void swap(int *t, V_p *vp)
+{
+    int temp = t[0];
+    t[0] = vp->value;
+    t[vp->positoin] = temp;
+}
+void display_vp(V_p vp)
+{
+    printf("value = %d, position = %d\n", vp.value, vp.positoin);
+}
 // int min(int *t, int size_Tab)
 // {
 //     int position = 0;
@@ -51,9 +60,13 @@ int main()
     // swap
     int tab[] = {1, 3, 5, 0, 2, -1};
     int *t = tab;
-    display_T(t, 5); // index i : t + i, size - i
+    display_T(t, 6); // index i : t + i, size - i
+    V_p min_t = min_of_tab(t, 6);
+    display_vp(min_t);
     // int min_t = min(t, 6);
     // printf("min tab = %d\n", min_t);
-
+    printf("swaping\n");
+    swap(t, &min_t);
+    display_T(t, 6); // index i : t + i, size - i
     return 0;
 }
