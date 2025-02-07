@@ -28,6 +28,16 @@ void swap(int *t, V_p *vp)
     t[0] = vp->value;
     t[vp->positoin] = temp;
 }
+
+void tri(int *t, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        V_p min = min_of_tab(t + i, size - i);
+        swap(t + i, &min);
+    }
+}
+
 void display_vp(V_p vp)
 {
     printf("value = %d, position = %d\n", vp.value, vp.positoin);
@@ -67,6 +77,8 @@ int main()
     // printf("min tab = %d\n", min_t);
     printf("swaping\n");
     swap(t, &min_t);
+    display_T(t, 6); // index i : t + i, size - i
+    tri(t, 6);
     display_T(t, 6); // index i : t + i, size - i
     return 0;
 }
