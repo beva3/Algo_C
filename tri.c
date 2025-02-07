@@ -82,3 +82,11 @@ int main()
     display_T(t, 6); // index i : t + i, size - i
     return 0;
 }
+
+/**
+ * firste 
+ *      we should know the MIN(value, position) of the tab
+ * then 
+ *      swap the first element with the min element
+ * do this for i = 0 to i = size - 1
+ */
