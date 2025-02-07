@@ -11,6 +11,7 @@ void display_T(int *tab, int size);
 V_p min_of_tab(int *t, int size);
 void swap(int *t, V_p *vp);
 void tri(int *t, int size);
+void tri_1(int *t, int size);
 
 void test();
 
@@ -83,21 +84,27 @@ void tri(int *t, int size)
     }
 }
 
-// void tri(int *t, int size)
-// {
-//     for (int i = 0; i < size; i++)
-//     {
-//         V_p min = min_of_tab(t + i, size - i);
-//         min.position += i;  // Convertir la position relative en absolue
-//         swap(t, &min);      // Passer l'index i à swap()
-//         display_T(t, size); // Afficher après chaque swap
-//     }
-// }
+void tri_1(int *t, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        V_p min = min_of_tab(t + i, size - i);
+        min.position += i;  // Convertir la position relative en absolue
+        swap(t, &min);      // Passer l'index i à swap()
+        // display_T(t, size); // Afficher après chaque swap
+    }
+}
 
 void test()
 {
     int tab[] = {3, 1, 4, 2, 0};
+    int tab_1[] = {3, 1, 8, -1, 0};
     int size = 5;
     tri(tab, size);
     display_T(tab, size);
+
+    printf("tri_1\n");
+
+    tri_1(tab_1, size);
+    display_T(tab_1, size);
 }
